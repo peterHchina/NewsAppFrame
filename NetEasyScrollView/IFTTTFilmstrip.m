@@ -114,7 +114,7 @@
     //    NSAssert(!self.isEmpty, @"At least one KeyFrame must be set before animation begins.");
     id value;
     CGFloat progress = [self progressFromTime:0 toTime:1 atTime:time withEasingFunction:IFTTTEasingFunctionLinear];
-    value = [@14 interpolateTo:@16 withProgress:progress];
+    value = [@1 interpolateTo:@1.2 withProgress:progress];
     return value;
 }
 
@@ -123,7 +123,7 @@
     //    NSAssert(!self.isEmpty, @"At least one KeyFrame must be set before animation begins.");
     id value;
     CGFloat progress = [self progressFromTime:0 toTime:1 atTime:time withEasingFunction:IFTTTEasingFunctionLinear];
-    value = [@16 interpolateTo:@14 withProgress:progress];
+    value = [@1.2 interpolateTo:@1 withProgress:progress];
     return value;
 }
 

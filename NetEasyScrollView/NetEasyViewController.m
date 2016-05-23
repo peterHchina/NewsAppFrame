@@ -28,6 +28,8 @@
     NSInteger begainDragPage;
     NSInteger dragPageNumber;
     NSInteger endDeceleratingPage;
+    
+    NSMutableDictionary *offestDictory;
 }
 
 - (void)viewDidLoad {
@@ -45,25 +47,36 @@
 
 -(void) configureTopView{
     self.buttonsArray = [NSMutableArray new];
+    offestDictory = [NSMutableDictionary new];
     self.topScrollView.showsHorizontalScrollIndicator = NO;
     if (pageNumber>7) {
          self.topScrollViewWidthConstraint.constant = (pageNumber-6.2)*singleButtonWidth;
     }
       for (int i = 0 ; i<pageNumber; i++) {
           UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-          [button setTitle:[NSString stringWithFormat:@"%d按钮",i] forState:UIControlStateNormal];
+          [button setTitle:[NSString stringWithFormat:@"头条"] forState:UIControlStateNormal];
           if (i == 0) {
               [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-              [button.titleLabel setFont:[UIFont systemFontOfSize:16.f]];
+              [button.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+              CGAffineTransform scaleTransform = CGAffineTransformMakeScale(1.2, 1.2);
+              button.transform =scaleTransform;
           }else{
               [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-              [button.titleLabel setFont:[UIFont systemFontOfSize:14.f]];
+              [button.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
           }
           button.tag = i;
           button.frame = CGRectMake(i*singleButtonWidth, 0, singleButtonWidth , 40);
           [button addTarget:self action:@selector(scrollToTargetView:) forControlEvents:UIControlEventTouchUpInside];
           [self.topContainerView addSubview:button];
           [self.buttonsArray addObject:button];
+          
+          if (i==2) {
+               [offestDictory setValue:[NSValue valueWithCGPoint:CGPointMake(0, 0)] forKey:[NSString  stringWithFormat:@"%d",i]];
+          }else if(i>2 && pageNumber-i>3){
+              [offestDictory setValue:[NSValue valueWithCGPoint:CGPointMake( (i-2)*singleButtonWidth, 0)] forKey:[NSString  stringWithFormat:@"%d",i]];
+          }else{
+              
+          }
       }
 }
 
@@ -133,8 +146,15 @@
             targetbutton = [_buttonsArray objectAtIndex:currentPage+1];
             [begainButton setTitleColor:(UIColor *)[filmstrip reverseValueAtTime:time] forState:UIControlStateNormal];
             [targetbutton setTitleColor:(UIColor *)[filmstrip valueAtTime:time] forState:UIControlStateNormal];
-            begainButton.titleLabel.font = fontSize(((NSNumber *)[filmstrip reverseSizeAtTime:time]).floatValue);
-            targetbutton.titleLabel.font = fontSize(((NSNumber *)[filmstrip sizeAtTime:time]).floatValue);
+//            begainButton.titleLabel.font = fontSize(((NSNumber *)[filmstrip reverseSizeAtTime:time]).floatValue);
+//            targetbutton.titleLabel.font = fontSize(((NSNumber *)[filmstrip sizeAtTime:time]).floatValue);
+            CGFloat scale = (CGFloat)[(NSNumber *)[filmstrip sizeAtTime:time] floatValue];
+            CGAffineTransform scaleTransform = CGAffineTransformMakeScale(scale, scale);
+            targetbutton.transform =scaleTransform;
+            
+            CGFloat scale1 = (CGFloat)[(NSNumber *)[filmstrip reverseSizeAtTime:time] floatValue];
+            CGAffineTransform scaleTransform1 = CGAffineTransformMakeScale(scale1, scale1);
+            begainButton.transform =scaleTransform1;
         }else{
             return;
         }
@@ -145,8 +165,16 @@
             targetbutton = [_buttonsArray objectAtIndex:currentPage];
             [begainButton setTitleColor:(UIColor *)[filmstrip reverseValueAtTime:time] forState:UIControlStateNormal];
             [targetbutton setTitleColor:(UIColor *)[filmstrip valueAtTime:time] forState:UIControlStateNormal];
-            begainButton.titleLabel.font = fontSize(((NSNumber *)[filmstrip reverseSizeAtTime:time]).floatValue);
-            targetbutton.titleLabel.font = fontSize(((NSNumber *)[filmstrip sizeAtTime:time]).floatValue);
+//            begainButton.titleLabel.font = fontSize(((NSNumber *)[filmstrip reverseSizeAtTime:time]).floatValue);
+//            targetbutton.titleLabel.font = fontSize(((NSNumber *)[filmstrip sizeAtTime:time]).floatValue);
+            CGFloat scale = (CGFloat)[(NSNumber *)[filmstrip sizeAtTime:time] floatValue];
+            CGAffineTransform scaleTransform = CGAffineTransformMakeScale(scale, scale);
+            targetbutton.transform =scaleTransform;
+            
+            CGFloat scale1 = (CGFloat)[(NSNumber *)[filmstrip reverseSizeAtTime:time] floatValue];
+            CGAffineTransform scaleTransform1 = CGAffineTransformMakeScale(scale1, scale1);
+            begainButton.transform =scaleTransform1;
+
         }else{
             return;
         }
@@ -157,30 +185,37 @@
 
 
 -(void) AnimationToPosition{
-    CGFloat width = singleButtonWidth;
+//    CGFloat width = singleButtonWidth;
     begainDragPage = -1000;
     if (currentPage < 0 || pageNumber <=6 || currentPage > pageNumber-1) {
         return;
     }
-    if ( currentPage>0) {
-        if (isSwipeToRight) {
-            if (pageNumber - currentPage > 3 && currentPage>2) {
-                [self.topScrollView setContentOffset: CGPointMake(self.topScrollView.contentOffset.x+dragPageNumber*width, 0) animated:YES];
-            }
-        }else{
-            if (pageNumber - currentPage > 3 && currentPage >2){
-                [self.topScrollView setContentOffset: CGPointMake(self.topScrollView.contentOffset.x+dragPageNumber*width, 0) animated:YES];
-            }
-        }
+//    if ( currentPage>0) {
+//        if (isSwipeToRight) {
+//            if (pageNumber - currentPage > 3 && currentPage>2) {
+//                [self.topScrollView setContentOffset: CGPointMake(self.topScrollView.contentOffset.x+dragPageNumber*width, 0) animated:YES];
+//            }
+//        }else{
+//            if (pageNumber - currentPage > 3 && currentPage >2){
+//                [self.topScrollView setContentOffset: CGPointMake(self.topScrollView.contentOffset.x+dragPageNumber*width, 0) animated:YES];
+//            }
+//        }
+//    }
+    
+    NSValue *point = (NSValue *)[offestDictory valueForKey:[NSString stringWithFormat:@"%ld",currentPage]];
+    if (point) {
+         [self.topScrollView setContentOffset:point.CGPointValue  animated:YES];
     }
+   
+
     dragPageNumber = 0;
 }
 
 -(void) scrollToTargetView:(UIButton *) sender{
     NSInteger tage = sender.tag;
-//    isClickButton = YES;
-    [self.bottomScrollView setContentOffset: CGPointMake(tage*self.pageWidth, 0) animated: NO];
     [self changeButtonState:tage];
+    [self.bottomScrollView setContentOffset: CGPointMake(tage*self.pageWidth, 0) animated: NO];
+    
 }
 
 -(void) changeButtonState:(NSInteger) tag{
