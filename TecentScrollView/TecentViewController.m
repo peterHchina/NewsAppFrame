@@ -6,7 +6,7 @@
 //  Copyright © 2016年 vivo. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TecentViewController.h"
 #import "ContentViewController.h"
 #import "IFTTTFilmstrip.h"
 #import "IFTTTEasingFunction.h"
@@ -17,14 +17,14 @@
 #define singleButtonWidth 60
 #define fontSize(a)  [UIFont systemFontOfSize:a]
 #define RGB(r,g,b)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
-@interface ViewController ()<UIScrollViewDelegate>
+@interface TecentViewController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) NSMutableArray *buttonsArray;
 @property (nonatomic,strong) TitleBGView * titleView;
 @property (nonatomic,strong) NSMutableArray *titles;
 @property (nonatomic,assign) CGFloat totalWidth;
 @end
 
-@implementation ViewController
+@implementation TecentViewController
 {
     NSInteger currentPage;
     CGFloat lastXOffset;
@@ -77,7 +77,7 @@
     }
         
     _totalWidth = 0;
-    for (int i = 0 ; i<pageNumber; i++) {
+    for (int i = 0 ; i<_titles.count; i++) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         TitleModel *model = _titles[i];
         [button setTitle:model.title forState:UIControlStateNormal];
@@ -115,8 +115,8 @@
 -(void) configureBottomView{
 //    self.masterScrollView.showsHorizontalScrollIndicator = NO;
     self.masterScrollView.pagingEnabled = YES;
-    self.masterScrollViewConstraint.constant = (pageNumber-1)*[UIScreen mainScreen].bounds.size.width;
-    for (int i = 0 ; i<pageNumber; i++) {
+    self.masterScrollViewConstraint.constant = (_titles.count-1)*[UIScreen mainScreen].bounds.size.width;
+    for (int i = 0 ; i<_titles.count; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*[UIScreen mainScreen].bounds.size.width, 0,self.masterScrollView.bounds.size.width,self.masterScrollView.bounds.size.height)];
         [self.containerView addSubview:view];
         
