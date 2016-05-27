@@ -95,7 +95,7 @@
 //    NSAssert(!self.isEmpty, @"At least one KeyFrame must be set before animation begins.");
     id value;
     CGFloat progress = [self progressFromTime:0 toTime:1 atTime:time withEasingFunction:IFTTTEasingFunctionLinear];
-    value = [[UIColor blackColor] interpolateTo:[UIColor redColor] withProgress:progress];
+    value = [RGB(79 ,79,79) interpolateTo:RGB(211,0,0) withProgress:progress];
     return value;
 }
 
@@ -104,7 +104,7 @@
 //    NSAssert(!self.isEmpty, @"At least one KeyFrame must be set before animation begins.");
     id value;
     CGFloat progress = [self progressFromTime:0 toTime:1 atTime:time withEasingFunction:IFTTTEasingFunctionLinear];
-    value = [[UIColor redColor] interpolateTo:[UIColor blackColor] withProgress:progress];
+    value = [RGB(211,0,0) interpolateTo:RGB(79 ,79,79) withProgress:progress];
     return value;
 }
 

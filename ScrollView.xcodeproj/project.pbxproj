@@ -32,6 +32,7 @@
 		47CFC4651CEDE62400989888 /* IFTTTInterpolatable.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC4641CEDE62400989888 /* IFTTTInterpolatable.m */; };
 		47CFC4681CEDE65600989888 /* IFTTTEasingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC4671CEDE65600989888 /* IFTTTEasingFunction.m */; };
 		47CFC46B1CEDE67300989888 /* IFTTTFilmstrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC46A1CEDE67300989888 /* IFTTTFilmstrip.m */; };
+		47D0EB021CF81F7A005A14A0 /* TitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9FCF71CF6810F0052408F /* TitleModel.m */; };
 		47D4938B1CF5A7A400C7A13A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D4938A1CF5A7A400C7A13A /* main.m */; };
 		47D4938E1CF5A7A400C7A13A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D4938D1CF5A7A400C7A13A /* AppDelegate.m */; };
 		47D493911CF5A7A400C7A13A /* TecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D493901CF5A7A400C7A13A /* TecentViewController.m */; };
@@ -450,6 +451,7 @@
 			files = (
 				47CFC4681CEDE65600989888 /* IFTTTEasingFunction.m in Sources */,
 				47CFC4341CEDC57A00989888 /* NetEasyViewController.m in Sources */,
+				47D0EB021CF81F7A005A14A0 /* TitleModel.m in Sources */,
 				47CFC4651CEDE62400989888 /* IFTTTInterpolatable.m in Sources */,
 				47CFC4311CEDC57A00989888 /* AppDelegate.m in Sources */,
 				47CFC4621CEDD1D800989888 /* ContentViewController.m in Sources */,

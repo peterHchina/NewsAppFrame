@@ -11,11 +11,15 @@
 #import "IFTTTFilmstrip.h"
 #import "IFTTTEasingFunction.h"
 #import "IFTTTInterpolatable.h"
+#import "TitleModel.h"
 #define pageNumber  10
 #define singleButtonWidth 60
 #define fontSize(a)  [UIFont systemFontOfSize:a]
+
 @interface NetEasyViewController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) NSMutableArray *buttonsArray;
+@property (nonatomic,strong) NSMutableArray *titles;
+@property (nonatomic,assign) CGFloat totalWidth;
 @end
 
 @implementation NetEasyViewController{
@@ -28,16 +32,28 @@
     NSInteger begainDragPage;
     NSInteger dragPageNumber;
     NSInteger endDeceleratingPage;
-    
+     NSInteger lastPageNumber;
     NSMutableDictionary *offestDictory;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSArray* titleArray = @[@"娱乐",@"民生",@"本地",@"手机",@"互联网",@"政治",@"纪录片",@"东方今报",@"江南都市报"];
+    _totalWidth = 0;
+    lastPageNumber = 0;
+    _titles = [NSMutableArray new];
+     filmstrip = [IFTTTFilmstrip new];
+    for (NSString *title in titleArray) {
+        TitleModel * Model = [TitleModel new];
+        Model.title = title;
+        [_titles addObject:Model];
+        _totalWidth+=Model.width;
+    }
+
     [self configureTopView];
     [self configureBottomView];
-    filmstrip = [IFTTTFilmstrip new];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,47 +65,58 @@
     self.buttonsArray = [NSMutableArray new];
     offestDictory = [NSMutableDictionary new];
     self.topScrollView.showsHorizontalScrollIndicator = NO;
-    if (pageNumber>7) {
-         self.topScrollViewWidthConstraint.constant = (pageNumber-6.2)*singleButtonWidth;
+    if (_totalWidth>self.topScrollView.bounds.size.width) {
+        self.topScrollViewWidthConstraint.constant = (_totalWidth-self.topScrollView.bounds.size.width);
     }
-      for (int i = 0 ; i<pageNumber; i++) {
+    _totalWidth = 0;
+      for (int i = 0 ; i<_titles.count; i++) {
           UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-          [button setTitle:[NSString stringWithFormat:@"头条"] forState:UIControlStateNormal];
+          TitleModel *model = _titles[i];
+          [button setTitle:model.title forState:UIControlStateNormal];
           if (i == 0) {
-              [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-              [button.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+              [button setTitleColor:RGB(211,0,0) forState:UIControlStateNormal];
+              [button.titleLabel setFont:[UIFont systemFontOfSize:15.f weight:UIFontWeightThin]];
               CGAffineTransform scaleTransform = CGAffineTransformMakeScale(1.2, 1.2);
               button.transform =scaleTransform;
           }else{
-              [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-              [button.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+              [button setTitleColor:RGB(69,69,69)forState:UIControlStateNormal];
+              [button.titleLabel setFont:[UIFont systemFontOfSize:15.f weight:UIFontWeightThin]];
           }
           button.tag = i;
-          button.frame = CGRectMake(i*singleButtonWidth, 0, singleButtonWidth , 40);
+          if (i==0) {
+              button.frame = CGRectMake(0, 0, model.width , 44);
+              model.startPointX = 0;
+              
+          }else{
+              button.frame = CGRectMake(_totalWidth, 0, model.width , 44);
+              model.startPointX = _totalWidth;
+          }
+
           [button addTarget:self action:@selector(scrollToTargetView:) forControlEvents:UIControlEventTouchUpInside];
           [self.topContainerView addSubview:button];
           [self.buttonsArray addObject:button];
           
           if (i==2) {
                [offestDictory setValue:[NSValue valueWithCGPoint:CGPointMake(0, 0)] forKey:[NSString  stringWithFormat:@"%d",i]];
-          }else if(i>2 && pageNumber-i>3){
-              [offestDictory setValue:[NSValue valueWithCGPoint:CGPointMake( (i-2)*singleButtonWidth, 0)] forKey:[NSString  stringWithFormat:@"%d",i]];
-          }else{
-              
+          }else if(i>2 && _titles.count-i>3){
+              [offestDictory setValue:[NSValue valueWithCGPoint:CGPointMake( _totalWidth, 0)] forKey:[NSString  stringWithFormat:@"%d",i]];
           }
+          _totalWidth += model.width;
       }
 }
 
 -(void) configureBottomView{
     self.bottomScrollView.showsHorizontalScrollIndicator = NO;
     self.bottomScrollView.pagingEnabled = YES;
-    self.bottomScrollViewWidthConstraint.constant = (pageNumber-1)*[UIScreen mainScreen].bounds.size.width;
-    for (int i = 0 ; i<pageNumber; i++) {
+    self.bottomScrollViewWidthConstraint.constant = (_titles.count-1)*[UIScreen mainScreen].bounds.size.width;
+    for (int i = 0 ; i<_titles.count; i++) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i*[UIScreen mainScreen].bounds.size.width, 0,self.bottomScrollView.bounds.size.width,self.bottomContainerView.bounds.size.height)];
         [self.bottomContainerView addSubview:view];
 
         ContentViewController *vc = [[ContentViewController alloc] init];
+        vc.tag = [NSString stringWithFormat:@"%d",i];
         vc.view.frame = view.bounds ;
+        
         [view addSubview:vc.view];
         [self addChildViewController:vc];
      }
@@ -140,8 +167,8 @@
 -(void) scrollTopViewTextColorAnimation:(CGFloat) time{
     UIButton *begainButton;
     UIButton *targetbutton;
-    if (isSwipeToRight && currentPage<pageNumber) {
-        if (currentPage<pageNumber-1 && currentPage>=0) {
+    if (isSwipeToRight && currentPage<_titles.count) {
+        if (currentPage<_titles.count-1 && currentPage>=0) {
             begainButton = [_buttonsArray objectAtIndex:currentPage];
             targetbutton = [_buttonsArray objectAtIndex:currentPage+1];
             [begainButton setTitleColor:(UIColor *)[filmstrip reverseValueAtTime:time] forState:UIControlStateNormal];
@@ -158,7 +185,7 @@
         }else{
             return;
         }
-    }else if(!isSwipeToRight && currentPage>=0 && currentPage!=pageNumber-1){
+    }else if(!isSwipeToRight && currentPage>=0 && currentPage!=_titles.count-1){
         time = 1-time;
         if (currentPage>=0) {
             begainButton = [_buttonsArray objectAtIndex:currentPage+1];
@@ -187,7 +214,7 @@
 -(void) AnimationToPosition{
 //    CGFloat width = singleButtonWidth;
     begainDragPage = -1000;
-    if (currentPage < 0 || pageNumber <=6 || currentPage > pageNumber-1) {
+    if (currentPage < 0 || _titles.count <=6 || currentPage > _titles.count-1) {
         return;
     }
 //    if ( currentPage>0) {
@@ -216,7 +243,10 @@
     [self changeButtonState:tage];
     [self.bottomScrollView setContentOffset: CGPointMake(tage*self.pageWidth, 0) animated: NO];
     NSValue *point = (NSValue *)[offestDictory valueForKey:[NSString stringWithFormat:@"%ld",tage]];
-    [self.topScrollView setContentOffset:point.CGPointValue animated:YES];
+    if (point) {
+        [self.topScrollView setContentOffset:point.CGPointValue animated:YES];
+
+    }
     
 }
 
