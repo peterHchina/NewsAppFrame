@@ -32,6 +32,20 @@
 		47CFC4651CEDE62400989888 /* IFTTTInterpolatable.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC4641CEDE62400989888 /* IFTTTInterpolatable.m */; };
 		47CFC4681CEDE65600989888 /* IFTTTEasingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC4671CEDE65600989888 /* IFTTTEasingFunction.m */; };
 		47CFC46B1CEDE67300989888 /* IFTTTFilmstrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC46A1CEDE67300989888 /* IFTTTFilmstrip.m */; };
+		47D4938B1CF5A7A400C7A13A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D4938A1CF5A7A400C7A13A /* main.m */; };
+		47D4938E1CF5A7A400C7A13A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D4938D1CF5A7A400C7A13A /* AppDelegate.m */; };
+		47D493911CF5A7A400C7A13A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D493901CF5A7A400C7A13A /* ViewController.m */; };
+		47D493941CF5A7A400C7A13A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D493921CF5A7A400C7A13A /* Main.storyboard */; };
+		47D493961CF5A7A400C7A13A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D493951CF5A7A400C7A13A /* Assets.xcassets */; };
+		47D493991CF5A7A400C7A13A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D493971CF5A7A400C7A13A /* LaunchScreen.storyboard */; };
+		47D4939E1CF5AB7700C7A13A /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CFC4411CEDC9E200989888 /* Reveal.framework */; };
+		47D4939F1CF5AEEB00C7A13A /* IFTTTInterpolatable.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC4641CEDE62400989888 /* IFTTTInterpolatable.m */; };
+		47D493A01CF5AEF100C7A13A /* IFTTTEasingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC4671CEDE65600989888 /* IFTTTEasingFunction.m */; };
+		47D493A11CF5AEF400C7A13A /* IFTTTFilmstrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC46A1CEDE67300989888 /* IFTTTFilmstrip.m */; };
+		47D493A21CF5B09500C7A13A /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CFC4611CEDD1D800989888 /* ContentViewController.m */; };
+		47D493A51CF5B53D00C7A13A /* TitleBGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D493A41CF5B53D00C7A13A /* TitleBGView.m */; };
+		47F9FCF81CF6810F0052408F /* TitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9FCF71CF6810F0052408F /* TitleModel.m */; };
+		47F9FCFB1CF6F3BA0052408F /* NSMutableArray+MutableArrayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9FCFA1CF6F3BA0052408F /* NSMutableArray+MutableArrayUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +88,22 @@
 		47CFC4671CEDE65600989888 /* IFTTTEasingFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTEasingFunction.m; sourceTree = "<group>"; };
 		47CFC4691CEDE67300989888 /* IFTTTFilmstrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTTTFilmstrip.h; sourceTree = "<group>"; };
 		47CFC46A1CEDE67300989888 /* IFTTTFilmstrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTTTFilmstrip.m; sourceTree = "<group>"; };
+		47D493871CF5A7A400C7A13A /* TecentScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TecentScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47D4938A1CF5A7A400C7A13A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		47D4938C1CF5A7A400C7A13A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		47D4938D1CF5A7A400C7A13A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		47D4938F1CF5A7A400C7A13A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		47D493901CF5A7A400C7A13A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		47D493931CF5A7A400C7A13A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		47D493951CF5A7A400C7A13A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		47D493981CF5A7A400C7A13A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		47D4939A1CF5A7A400C7A13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D493A31CF5B53D00C7A13A /* TitleBGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleBGView.h; sourceTree = "<group>"; };
+		47D493A41CF5B53D00C7A13A /* TitleBGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleBGView.m; sourceTree = "<group>"; };
+		47F9FCF61CF6810F0052408F /* TitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleModel.h; sourceTree = "<group>"; };
+		47F9FCF71CF6810F0052408F /* TitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleModel.m; sourceTree = "<group>"; };
+		47F9FCF91CF6F3BA0052408F /* NSMutableArray+MutableArrayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MutableArrayUtil.h"; sourceTree = "<group>"; };
+		47F9FCFA1CF6F3BA0052408F /* NSMutableArray+MutableArrayUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MutableArrayUtil.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +131,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		47D493841CF5A7A400C7A13A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D4939E1CF5AB7700C7A13A /* Reveal.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +149,7 @@
 				471DF9471C9A9A9A00F36298 /* ScrollView */,
 				47CFC42B1CEDC57A00989888 /* NetEasyScrollView */,
 				47CFC4491CEDCDB000989888 /* Demo */,
+				47D493881CF5A7A400C7A13A /* TecentScrollView */,
 				471DF9461C9A9A9A00F36298 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +160,7 @@
 				471DF9451C9A9A9A00F36298 /* ScrollView.app */,
 				47CFC42A1CEDC57A00989888 /* NetEasyScrollView.app */,
 				47CFC4481CEDCDB000989888 /* Demo.app */,
+				47D493871CF5A7A400C7A13A /* TecentScrollView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +245,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		47D493881CF5A7A400C7A13A /* TecentScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				47D4938C1CF5A7A400C7A13A /* AppDelegate.h */,
+				47D4938D1CF5A7A400C7A13A /* AppDelegate.m */,
+				47D4938F1CF5A7A400C7A13A /* ViewController.h */,
+				47D493901CF5A7A400C7A13A /* ViewController.m */,
+				47D493921CF5A7A400C7A13A /* Main.storyboard */,
+				47D493951CF5A7A400C7A13A /* Assets.xcassets */,
+				47D493971CF5A7A400C7A13A /* LaunchScreen.storyboard */,
+				47D4939A1CF5A7A400C7A13A /* Info.plist */,
+				47D493891CF5A7A400C7A13A /* Supporting Files */,
+				47D493A31CF5B53D00C7A13A /* TitleBGView.h */,
+				47D493A41CF5B53D00C7A13A /* TitleBGView.m */,
+				47F9FCF61CF6810F0052408F /* TitleModel.h */,
+				47F9FCF71CF6810F0052408F /* TitleModel.m */,
+				47F9FCF91CF6F3BA0052408F /* NSMutableArray+MutableArrayUtil.h */,
+				47F9FCFA1CF6F3BA0052408F /* NSMutableArray+MutableArrayUtil.m */,
+			);
+			path = TecentScrollView;
+			sourceTree = "<group>";
+		};
+		47D493891CF5A7A400C7A13A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47D4938A1CF5A7A400C7A13A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,6 +329,23 @@
 			productReference = 47CFC4481CEDCDB000989888 /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		47D493861CF5A7A400C7A13A /* TecentScrollView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47D4939B1CF5A7A400C7A13A /* Build configuration list for PBXNativeTarget "TecentScrollView" */;
+			buildPhases = (
+				47D493831CF5A7A400C7A13A /* Sources */,
+				47D493841CF5A7A400C7A13A /* Frameworks */,
+				47D493851CF5A7A400C7A13A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TecentScrollView;
+			productName = TecentScrollView;
+			productReference = 47D493871CF5A7A400C7A13A /* TecentScrollView.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +362,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					47CFC4471CEDCDB000989888 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					47D493861CF5A7A400C7A13A = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -295,6 +385,7 @@
 				471DF9441C9A9A9A00F36298 /* ScrollView */,
 				47CFC4291CEDC57A00989888 /* NetEasyScrollView */,
 				47CFC4471CEDCDB000989888 /* Demo */,
+				47D493861CF5A7A400C7A13A /* TecentScrollView */,
 			);
 		};
 /* End PBXProject section */
@@ -327,6 +418,16 @@
 				47CFC45A1CEDCDB000989888 /* LaunchScreen.storyboard in Resources */,
 				47CFC4571CEDCDB000989888 /* Assets.xcassets in Resources */,
 				47CFC4551CEDCDB000989888 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47D493851CF5A7A400C7A13A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D493991CF5A7A400C7A13A /* LaunchScreen.storyboard in Resources */,
+				47D493961CF5A7A400C7A13A /* Assets.xcassets in Resources */,
+				47D493941CF5A7A400C7A13A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +465,23 @@
 				47CFC4521CEDCDB000989888 /* ViewController.m in Sources */,
 				47CFC44F1CEDCDB000989888 /* AppDelegate.m in Sources */,
 				47CFC44C1CEDCDB000989888 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47D493831CF5A7A400C7A13A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47F9FCF81CF6810F0052408F /* TitleModel.m in Sources */,
+				47D493911CF5A7A400C7A13A /* ViewController.m in Sources */,
+				47D493A21CF5B09500C7A13A /* ContentViewController.m in Sources */,
+				47D493A01CF5AEF100C7A13A /* IFTTTEasingFunction.m in Sources */,
+				47D4939F1CF5AEEB00C7A13A /* IFTTTInterpolatable.m in Sources */,
+				47D4938E1CF5A7A400C7A13A /* AppDelegate.m in Sources */,
+				47F9FCFB1CF6F3BA0052408F /* NSMutableArray+MutableArrayUtil.m in Sources */,
+				47D493A11CF5AEF400C7A13A /* IFTTTFilmstrip.m in Sources */,
+				47D493A51CF5B53D00C7A13A /* TitleBGView.m in Sources */,
+				47D4938B1CF5A7A400C7A13A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +532,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				47CFC4591CEDCDB000989888 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		47D493921CF5A7A400C7A13A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47D493931CF5A7A400C7A13A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		47D493971CF5A7A400C7A13A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47D493981CF5A7A400C7A13A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -541,7 +675,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NetEasyScrollView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -565,7 +699,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NetEasyScrollView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -625,6 +759,52 @@
 			};
 			name = Release;
 		};
+		47D4939C1CF5A7A400C7A13A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = TecentScrollView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vivo.TecentScrollView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		47D4939D1CF5A7A400C7A13A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = TecentScrollView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vivo.TecentScrollView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -660,6 +840,15 @@
 			buildConfigurations = (
 				47CFC45D1CEDCDB000989888 /* Debug */,
 				47CFC45E1CEDCDB000989888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47D4939B1CF5A7A400C7A13A /* Build configuration list for PBXNativeTarget "TecentScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47D4939C1CF5A7A400C7A13A /* Debug */,
+				47D4939D1CF5A7A400C7A13A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

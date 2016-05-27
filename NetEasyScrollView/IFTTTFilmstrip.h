@@ -19,5 +19,7 @@
 - (id<IFTTTInterpolatable>)reverseValueAtTime:(CGFloat)time;
 - (id<IFTTTInterpolatable>)sizeAtTime:(CGFloat)time;
 - (id<IFTTTInterpolatable>)reverseSizeAtTime:(CGFloat)time;
+- (id<IFTTTInterpolatable>)BoundsFromTime:(CGRect)fromRect toTime:(CGRect)toRect  :(CGFloat)time;
+- (id<IFTTTInterpolatable>)reverseBoundsFromTime:(CGRect)fromRect toTime:(CGRect)toRect  :(CGFloat)time;
 
 @end

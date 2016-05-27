@@ -127,6 +127,25 @@
     return value;
 }
 
+- (id<IFTTTInterpolatable>)BoundsFromTime:(CGRect)fromRect toTime:(CGRect)toRect  :(CGFloat)time
+{
+    //    NSAssert(!self.isEmpty, @"At least one KeyFrame must be set before animation begins.");
+    id value;
+    CGFloat progress = [self progressFromTime:0 toTime:1 atTime:time withEasingFunction:IFTTTEasingFunctionLinear];
+    value = [NSValue valueWithCGRect: [NSValue interpolateCGRectFrom:fromRect to:toRect withProgress:progress]];
+    return value;
+}
+
+- (id<IFTTTInterpolatable>)reverseBoundsFromTime:(CGRect)fromRect toTime:(CGRect)toRect  :(CGFloat)time
+{
+    //    NSAssert(!self.isEmpty, @"At least one KeyFrame must be set before animation begins.");
+    id value;
+    CGFloat progress = [self progressFromTime:0 toTime:1 atTime:time withEasingFunction:IFTTTEasingFunctionLinear];
+    value = [NSValue valueWithCGRect: [NSValue interpolateCGRectFrom:toRect  to:fromRect withProgress:progress]];
+    return value;
+}
+
+
 - (NSUInteger)indexOfKeyframeAfterTime:(CGFloat)time
 {
     for (NSUInteger i = 0; i < self.keyframes.count; i++) {

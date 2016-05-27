@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ContentViewController : UIViewController
-
+@property (nonatomic,copy) NSString *tag;
 @end

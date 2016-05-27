@@ -215,6 +215,8 @@
     NSInteger tage = sender.tag;
     [self changeButtonState:tage];
     [self.bottomScrollView setContentOffset: CGPointMake(tage*self.pageWidth, 0) animated: NO];
+    NSValue *point = (NSValue *)[offestDictory valueForKey:[NSString stringWithFormat:@"%ld",tage]];
+    [self.topScrollView setContentOffset:point.CGPointValue animated:YES];
     
 }
 
@@ -222,8 +224,17 @@
     UIButton * beginButton = [_buttonsArray objectAtIndex:currentPage];
     UIButton *selectedButton = [_buttonsArray objectAtIndex:tag];
     [beginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [beginButton.titleLabel setFont:[UIFont systemFontOfSize:14.f]];
+//    [beginButton.titleLabel setFont:[UIFont systemFontOfSize:14.f]];
     [selectedButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [selectedButton.titleLabel setFont:[UIFont systemFontOfSize:16.f]];
+//    [selectedButton.titleLabel setFont:[UIFont systemFontOfSize:16.f]];
+    
+   
+    CGAffineTransform scaleTransform = CGAffineTransformMakeScale(1.2, 1.2);
+    CGAffineTransform scaleTransform1 = CGAffineTransformMakeScale(1, 1);
+    [UIView animateWithDuration:.1 animations:^{
+        selectedButton.transform =scaleTransform;
+         beginButton.transform =scaleTransform1;
+    }];
+    
 }
 @end

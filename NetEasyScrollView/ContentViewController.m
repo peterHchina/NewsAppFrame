@@ -21,7 +21,14 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UILabel *content = [UILabel new];
+    content.bounds = CGRectMake(0, 0, 60, 60);
+    content.center = self.view.center;
+    content.text = _tag;
+    content.textColor = [UIColor lightGrayColor];
+    content.font = [UIFont systemFontOfSize:20];
+    [self.view addSubview:content];
 }
 
 -(void) viewDidAppear:(BOOL)animated{
